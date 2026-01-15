@@ -25,3 +25,6 @@ dist-ssr
 
 .agent
 report
+
+venv
+.venv
