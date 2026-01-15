@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Master</title>
-    <meta name="description" content="A premium task management experience.">
+    <title>TaskMaster</title>
+    <meta name="description" content="タスク管理アプリ">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,25 +19,39 @@
     <div class="background-glow"></div>
     <main class="container">
         <header>
-            <h1>Task Master</h1>
-            <p class="subtitle">Elevate your productivity</p>
+            <h1>タスク管理アプリ</h1>
         </header>
 
         <section class="input-section">
             <form id="task-form">
                 <div class="input-wrapper">
-                    <input type="text" id="task-input" placeholder="What needs to be done?" autocomplete="off" required>
-                    <select id="category-select" class="category-select" aria-label="Select Category">
-                        <option value="General">General</option>
-                        <option value="Work">Work</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Shopping">Shopping</option>
-                        <option value="Health">Health</option>
+                    <input type="text" id="task-input" placeholder="新しいタスクを入力..." autocomplete="off" required>
+                    <!-- Category Select (Dynamic) -->
+                    <select id="category-select" class="category-select">
+                        <!-- Options loaded via JS -->
                     </select>
+
+                    <!-- New Category Trigger -->
+                    <button type="button" id="new-category-btn" class="icon-btn" title="Create Category">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
                     <button type="submit" id="add-btn">
                         <i class="fa-solid fa-plus"></i>
-                        <span>Add</span>
+                        <span>追加</span>
                     </button>
+                </div>
+
+                <!-- Category Creation Modal (Hidden by default) -->
+                <div id="category-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <h3>New Category</h3>
+                        <input type="text" id="new-cat-name" placeholder="Category Name" />
+                        <input type="color" id="new-cat-color" value="#6c5ce7" />
+                        <div class="modal-actions">
+                            <button id="cancel-cat-btn">Cancel</button>
+                            <button id="save-cat-btn">Save</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </section>
@@ -48,7 +62,7 @@
             </ul>
             <div id="empty-state" class="hidden">
                 <i class="fa-regular fa-clipboard"></i>
-                <p>No tasks yet. Start by adding one above.</p>
+                <p>タスクがありません。上記から追加してください。</p>
             </div>
         </section>
     </main>
