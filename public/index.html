@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Master</title>
+    <meta name="description" content="A premium task management experience.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+    <main class="container">
+        <header>
+            <h1>Task Master</h1>
+            <p class="subtitle">Elevate your productivity</p>
+        </header>
+
+        <section class="input-section">
+            <form id="task-form">
+                <div class="input-wrapper">
+                    <input type="text" id="task-input" placeholder="What needs to be done?" autocomplete="off" required>
+                    <select id="category-select" class="category-select" aria-label="Select Category">
+                        <option value="General">General</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                    </select>
+                    <button type="submit" id="add-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Add</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <ul id="task-list">
+                <!-- Tasks will be injected here -->
+            </ul>
+            <div id="empty-state" class="hidden">
+                <i class="fa-regular fa-clipboard"></i>
+                <p>No tasks yet. Start by adding one above.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
